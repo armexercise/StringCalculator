@@ -10,9 +10,9 @@ import org.apache.commons.lang3.math.NumberUtils;
 /**
  * NumberExtractor to extract numbers from string
  * 
- * @author PP
+ * @author PP 
  *
- */
+ */ 
 public class NumberExtractor implements Extractor {
 
 	private static final String NEW_LINE_DELIMITER = "\n";

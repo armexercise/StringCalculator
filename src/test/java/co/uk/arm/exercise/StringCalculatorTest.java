@@ -18,6 +18,7 @@ import co.uk.arm.exercise.validator.NegativeNumberNotSupportedException;
  * 6. Add test for more different delimiters
  * 7. Add tests for negative numbers
  * 8. Test Big Numbers
+ * 9. Test variable length delimiters
  * 
  * @author pp
  */
@@ -98,5 +99,11 @@ public class StringCalculatorTest {
 	public void add_WithNumbersAndNumberGreaterThanMax_SumIgnoringBigNumber() throws NegativeNumberNotSupportedException {
 		int result = calculator.add("10,22,1200");
 		assertEquals(32, result);
+	}
+
+	@Test
+	public void add_WithThreeParamAndBigLengthDelimeters_Sum() throws NegativeNumberNotSupportedException {
+		int result = calculator.add("##\n1##2");
+		assertEquals(3, result);
 	}
 }

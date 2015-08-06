@@ -5,6 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import co.uk.arm.exercise.validator.NegativeNumberNotSupportedException;
+
 /**
  * String Calculator Test Class
  * 
@@ -14,6 +16,7 @@ import org.junit.Test;
  * 4. Add a test for null input
  * 5. Add test for new line
  * 6. Add test for more different delimiters
+ * 7. Add tests for negative numbers
  * 
  * @author pp
  */
@@ -27,44 +30,54 @@ public class StringCalculatorTest {
 	}
 
 	@Test
-	public void add_WithEmptyParam_Zero() {
+	public void add_WithEmptyParam_Zero() throws NegativeNumberNotSupportedException {
 		int result = calculator.add("");
 		assertEquals(0, result);
 	}
 
 	@Test
-	public void add_WithOneParam_OneNumber() {
+	public void add_WithOneParam_OneNumber() throws NegativeNumberNotSupportedException {
 		int result = calculator.add("5");
 		assertEquals(5, result);
 	}
 
 	@Test
-	public void add_WithTwoParams_Sum() {
+	public void add_WithTwoParams_Sum() throws NegativeNumberNotSupportedException {
 		int result = calculator.add("5,10");
 		assertEquals(15, result);
 	}
 
 	@Test
-	public void add_WithNullParam_Zero() {
+	public void add_WithNullParam_Zero() throws NegativeNumberNotSupportedException {
 		int result = calculator.add(null);
 		assertEquals(0, result);
 	}
 
 	// @Test
-	public void add_WithThreeParamAndNewLine_Sum() {
+	public void add_WithThreeParamAndNewLine_Sum() throws NegativeNumberNotSupportedException {
 		int result = calculator.add("1\n2,3");
 		assertEquals(6, result);
 	}
 
 	@Test
-	public void add_WithThreeParamAndDifferentDelimeters_Sum() {
+	public void add_WithThreeParamAndDifferentDelimeters_Sum() throws NegativeNumberNotSupportedException {
 		int result = calculator.add(";\n1;2");
 		assertEquals(3, result);
 	}
 
 	@Test
-	public void add_WithThreeParamAndDifferentDelimeters2_Sum() {
+	public void add_WithThreeParamAndDifferentDelimeters2_Sum() throws NegativeNumberNotSupportedException {
 		int result = calculator.add("#\n1#2");
 		assertEquals(3, result);
+	}
+
+	@Test(expected = NegativeNumberNotSupportedException.class)
+	public void add_WithNegativeNumber_ThrowsException() throws NegativeNumberNotSupportedException {
+		calculator.add("-10");
+	}
+
+	@Test(expected = NegativeNumberNotSupportedException.class)
+	public void add_WithNegativeNumbers_ThrowsException() throws NegativeNumberNotSupportedException {
+		calculator.add("2, -10");
 	}
 }

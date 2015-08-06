@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 
 /**
  * NumberExtractor to extract numbers from string
@@ -34,7 +35,7 @@ public class NumberExtractor implements Extractor {
 
 			while (tokenizer.hasMoreTokens()) {
 				String element = tokenizer.nextToken().trim();
-				if (StringUtils.isNumeric(element)) {
+				if (NumberUtils.isNumber(element)) {
 					int nextElement = Integer.parseInt(element);
 					resultList.add(nextElement);
 				}

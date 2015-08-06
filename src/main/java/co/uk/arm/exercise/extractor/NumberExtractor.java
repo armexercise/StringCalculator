@@ -9,12 +9,12 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * NumberExtractor to extract numbers from string
  * 
- * @author Paramdeep
+ * @author PP
  *
  */
 public class NumberExtractor implements Extractor {
 
-	private static final String DELIMITER = ",";
+	private static final String DELIMITER = ",\n";
 
 	@Override
 	public List<Integer> extract(String inputString) {

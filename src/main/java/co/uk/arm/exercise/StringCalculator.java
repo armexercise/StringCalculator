@@ -22,7 +22,7 @@ public class StringCalculator {
 		extractor = new NumberExtractor();
 		validator = new NumberValidator();
 	}
-
+	
 	/**
 	 * Returns 0 for empty String and returns the same number if case of single number
 	 * or sum of two numbers in case of two numbers.

@@ -11,6 +11,8 @@ import java.util.List;
  */
 public class NumberValidator implements Validator {
 
+	private static final int MAX_NUMBER = 1000;
+
 	@Override
 	public List<Integer> validate(List<Integer> numberList) throws NegativeNumberNotSupportedException {
 		List<Integer> result = new LinkedList<Integer>();
@@ -18,7 +20,7 @@ public class NumberValidator implements Validator {
 			for (Integer number : numberList) {
 				if (number < 0) {
 					throw new NegativeNumberNotSupportedException(numberList);
-				} else {
+				} else if (number < MAX_NUMBER) {
 					result.add(number);
 				}
 			}

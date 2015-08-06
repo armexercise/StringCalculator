@@ -10,7 +10,7 @@ import co.uk.arm.exercise.validator.Validator;
 
 /**
  * String Calculator (A simple Test Driven Development exercise)
- *
+ * 
  * @author pp
  */
 public class StringCalculator {
@@ -26,7 +26,7 @@ public class StringCalculator {
 	/**
 	 * Returns 0 for empty String and returns the same number if case of single number
 	 * or sum of two numbers in case of two numbers.
-	 * Also validate the numbers
+	 * Also validates the numbers
 	 * 
 	 * @param string
 	 *            numbers
@@ -41,5 +41,4 @@ public class StringCalculator {
 		}
 		return total;
 	}
-
 }

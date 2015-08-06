@@ -1,6 +1,9 @@
 package co.uk.arm.exercise;
 
-import org.apache.commons.lang3.StringUtils;
+import java.util.List;
+
+import co.uk.arm.exercise.extractor.Extractor;
+import co.uk.arm.exercise.extractor.NumberExtractor;
 
 /**
  * String Calculator (A simple Test Driven Development exercise)
@@ -9,20 +12,25 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class StringCalculator {
 
-	
+	private final Extractor extractor;
+
+	public StringCalculator() {
+		extractor = new NumberExtractor();
+	}
+
 	/**
 	 * Returns 0 for empty String and returns the same number if case of single number
+	 * or sum of two numbers in case of two numbers 
 	 * 
 	 * @param string
 	 *            numbers
 	 * @return total
 	 */
-	public int add(String string) {
+	public int add(String numberString) {
+		List<Integer> numberList = extractor.extract(numberString);
 		int total = 0;
-		if (StringUtils.isEmpty(string)) {
-			total = 0;
-		} else if (StringUtils.isNumeric(string)) {
-			total = Integer.parseInt(string);
+		for (int number : numberList) {
+			total += number;
 		}
 		return total;
 	}

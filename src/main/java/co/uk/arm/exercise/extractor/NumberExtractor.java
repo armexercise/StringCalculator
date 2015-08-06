@@ -19,7 +19,6 @@ public class NumberExtractor implements Extractor {
 	@Override
 	public List<Integer> extract(String inputString) {
 		List<Integer> resultList = new LinkedList<Integer>();
-		
 		if (!StringUtils.isEmpty(inputString)) {
 
 			StringTokenizer tokenizer = new StringTokenizer(inputString, DELIMITER);

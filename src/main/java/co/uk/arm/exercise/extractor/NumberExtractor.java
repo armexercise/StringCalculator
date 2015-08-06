@@ -14,6 +14,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class NumberExtractor implements Extractor {
 
+	private static final String NEW_LINE_DELIMITER = "\n";
 	private static final String DELIMITER = ",\n";
 
 	@Override
@@ -21,10 +22,18 @@ public class NumberExtractor implements Extractor {
 		List<Integer> resultList = new LinkedList<Integer>();
 		if (!StringUtils.isEmpty(inputString)) {
 
-			StringTokenizer tokenizer = new StringTokenizer(inputString, DELIMITER);
+			StringTokenizer newLineTokenizer = new StringTokenizer(inputString, NEW_LINE_DELIMITER);
+
+			String delimiter = DELIMITER;
+
+			if (newLineTokenizer.countTokens() > 1) {
+				delimiter = newLineTokenizer.nextToken();
+			}
+
+			StringTokenizer tokenizer = new StringTokenizer(inputString, delimiter);
 
 			while (tokenizer.hasMoreTokens()) {
-				int nextElement = Integer.parseInt(tokenizer.nextToken());
+				int nextElement = Integer.parseInt(tokenizer.nextToken().trim());
 				resultList.add(nextElement);
 			}
 		}

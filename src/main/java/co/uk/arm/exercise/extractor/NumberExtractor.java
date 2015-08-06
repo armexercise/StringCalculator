@@ -33,8 +33,11 @@ public class NumberExtractor implements Extractor {
 			StringTokenizer tokenizer = new StringTokenizer(inputString, delimiter);
 
 			while (tokenizer.hasMoreTokens()) {
-				int nextElement = Integer.parseInt(tokenizer.nextToken().trim());
-				resultList.add(nextElement);
+				String element = tokenizer.nextToken().trim();
+				if (StringUtils.isNumeric(element)) {
+					int nextElement = Integer.parseInt(element);
+					resultList.add(nextElement);
+				}
 			}
 		}
 		return resultList;

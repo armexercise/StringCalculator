@@ -8,17 +8,6 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * 
- * NumberExtractorTest
- * 1. Add a test to extract with empty string
- * 2. Add a test to extract with null string
- * 3. Add a test to extract without any numbers in the string
- * 4. Add a test to extract the numbers correctly 
- * 
- * @author PP
- *
- */
 public class NumberExtractorTest {
 
 	private Extractor extractor;

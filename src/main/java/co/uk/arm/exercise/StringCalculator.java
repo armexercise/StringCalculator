@@ -9,8 +9,9 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class StringCalculator {
 
+	
 	/**
-	 * Returns 0 for empty String
+	 * Returns 0 for empty String and returns the same number if case of single number
 	 * 
 	 * @param string
 	 *            numbers
@@ -20,6 +21,8 @@ public class StringCalculator {
 		int total = 0;
 		if (StringUtils.isEmpty(string)) {
 			total = 0;
+		} else if (StringUtils.isNumeric(string)) {
+			total = Integer.parseInt(string);
 		}
 		return total;
 	}
